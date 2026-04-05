@@ -607,6 +607,28 @@
     .transform-grid { grid-template-columns: 1fr; max-width: 500px; }
   }
 
+
+  .transform-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; max-width: 1100px; margin: 2rem auto 0;
+  }
+  .tg-item {
+    overflow: hidden; border: 1px solid rgba(198,181,164,0.2);
+    transition: all 0.5s var(--ease-out-expo);
+  }
+  .tg-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px -8px rgba(0,0,0,0.1);
+  }
+  .tg-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s var(--ease-out-expo);
+  }
+  .tg-item:hover img { transform: scale(1.04); }
+  @media (max-width: 600px) {
+    .transform-gallery { grid-template-columns: 1fr; max-width: 500px; }
+  }
+
 </style>
 </head>
 <body>
@@ -737,32 +759,38 @@
 <section class="transformation" id="results">
   <div class="section-eyebrow" style="justify-content:center;">Real Results</div>
   <h2 class="section-heading" style="text-align:center;">The <em>Transformation</em></h2>
-  <p class="section-lead" style="text-align:center;margin-inline:auto;">See why microblading changes everything — from sparse, over-penciled brows to natural, effortless beauty.</p>
+  <p class="section-lead" style="text-align:center;margin-inline:auto;">Real before &amp; after microblading results. See why precision brow artistry changes everything.</p>
   
   <div class="transform-grid">
     <div class="transform-card reveal">
       <div class="transform-img-wrap">
-        <img src="https://images.pexels.com/photos/5007995/pexels-photo-5007995.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop&crop=face" alt="Before - natural face, sparse brows" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/584a3c2e5016e156a517c1c0/1745099273469-PZ2XQQ7GR88SQUU5GVES/1.png?format=750w" alt="Microblading before and after transformation" loading="lazy">
       </div>
-      <div class="transform-badge before-badge">Before</div>
-      <p class="transform-desc">Sparse, thinning brows with visible hair loss. Many women over 50 experience this — and feel self-conscious daily.</p>
+      <div class="transform-badge before-badge">Before &amp; After</div>
+      <p class="transform-desc">Sparse, thinning brows transformed into natural, full brows with precision hair-stroke technique.</p>
     </div>
     
     <div class="transform-card reveal">
       <div class="transform-img-wrap">
-        <img src="https://images.pexels.com/photos/37546/pexels-photo-37546.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop&crop=face" alt="With makeup - brow pencil attempt" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/584a3c2e5016e156a517c1c0/1745095828245-EO91M0CWATND1A577ZPS/2.png?format=750w" alt="Microblading eyebrow transformation" loading="lazy">
       </div>
-      <div class="transform-badge makeup-badge">With Makeup</div>
-      <p class="transform-desc">A taupe brow pencil fills in gaps, but the ashy undertone clashes with her warm skin — and it smudges by noon.</p>
+      <div class="transform-badge after-badge">Transformation</div>
+      <p class="transform-desc">Custom brow mapping and microblading creates the perfect arch and density for each unique face shape.</p>
     </div>
     
     <div class="transform-card reveal">
       <div class="transform-img-wrap">
-        <img src="https://images.pexels.com/photos/3861592/pexels-photo-3861592.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop&crop=face" alt="After microblading - beautiful natural brows" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/584a3c2e5016e156a517c1c0/1770687871404-4FS1T4F6HFBPYH7AIV69/Bbw+Web+B%26A+%2822%29.png?format=750w" alt="Beautiful microblading results natural brows" loading="lazy">
       </div>
-      <div class="transform-badge after-badge">After Microblading</div>
-      <p class="transform-desc">Precision hair-strokes matched perfectly to her natural coloring. Structured, natural, and effortlessly beautiful — every single day.</p>
+      <div class="transform-badge after-badge">Results</div>
+      <p class="transform-desc">Wake up every day with perfectly defined, natural-looking brows — no pencil, no powder, no fuss.</p>
     </div>
+  </div>
+  
+  <div class="transform-gallery reveal">
+    <div class="tg-item"><img src="https://images.squarespace-cdn.com/content/v1/584a3c2e5016e156a517c1c0/1745102175728-4PFSBVRYFQ0K4D75BELF/Bbw+Web+B%26A+%283%29.png?format=750w" alt="Microblading before after" loading="lazy"></div>
+    <div class="tg-item"><img src="https://images.squarespace-cdn.com/content/v1/584a3c2e5016e156a517c1c0/1745113449903-Y1S12MLBNO4GU2HIRGF8/Bbw+Web+B%26A+%285%29.png?format=750w" alt="Eyebrow microblading results" loading="lazy"></div>
+    <div class="tg-item"><img src="https://images.squarespace-cdn.com/content/v1/584a3c2e5016e156a517c1c0/1744932797907-M2UW6OFXMLJY487JMJJ6/B%26A+1.JPG?format=750w" alt="Brow transformation close up" loading="lazy"></div>
   </div>
   
   <p style="text-align:center;margin-top:2.5rem;">
