@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happily Ever Inked & Beauty Co — Permanent Makeup & Piercings | Sumner, WA</title>
+<title>Happily Ever Inked & Beauty Co — Permanent Makeup & Piercings | Puyallup, WA</title>
 
 <!-- Social / OG -->
 <meta property="og:title" content="Happily Ever Inked & Beauty Co">
-<meta property="og:description" content="Permanent makeup & body piercing by Jamie Morara. Microblading, lip blush, eyeliner & curated piercings in Sumner, WA.">
+<meta property="og:description" content="Permanent makeup & body piercing by Jamie Morara. Microblading, lip blush, eyeliner & curated piercings in Puyallup, WA.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Permanent makeup studio by Jamie Morara in Sumner, WA. Microblading brows, lip blush, eyeliner & professional body piercing. Book your appointment today.">
+<meta name="description" content="Permanent makeup studio by Jamie Morara in Puyallup, WA. Microblading brows, lip blush, eyeliner & professional body piercing. Book your appointment today.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -629,6 +629,103 @@
     .transform-gallery { grid-template-columns: 1fr; max-width: 500px; }
   }
 
+
+  /* ─── MEET JAMIE ─── */
+  .meet-jamie { background: var(--white); padding: 6rem 7%; }
+  .mj-layout {
+    display: grid; grid-template-columns: 320px 1fr;
+    gap: 3.5rem; align-items: start;
+    max-width: 1100px; margin: 0 auto 3.5rem;
+  }
+  .mj-photo-wrap {
+    width: 100%; aspect-ratio: 1;
+    border-radius: 50%; overflow: hidden;
+    border: 3px solid var(--beige);
+    box-shadow: 0 20px 50px -10px rgba(26,58,143,0.12);
+  }
+  .mj-photo-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .mj-name-card {
+    text-align: center; margin-top: 1.2rem;
+  }
+  .mj-name-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 500;
+    color: var(--black);
+  }
+  .mj-name-card span {
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cobalt);
+  }
+  .mj-bio {
+    font-size: 0.92rem; font-weight: 300;
+    line-height: 1.8; color: rgba(8,9,12,0.5);
+    margin-bottom: 2rem;
+  }
+  .mj-details {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.2rem; margin-bottom: 2rem;
+  }
+  .mj-detail h5 {
+    font-family: var(--font-display);
+    font-size: 1rem; font-weight: 500;
+    margin-bottom: 0.3rem; color: var(--black);
+  }
+  .mj-detail p {
+    font-size: 0.82rem; font-weight: 300;
+    line-height: 1.65; color: rgba(8,9,12,0.45);
+  }
+  .mj-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+  /* Map */
+  .mj-map {
+    max-width: 1100px; margin: 0 auto;
+    border: 1px solid var(--beige);
+    overflow: hidden;
+  }
+  .mj-map-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    background: var(--cream);
+  }
+  .mj-map-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem; font-weight: 500;
+  }
+  .mj-map-embed { width: 100%; line-height: 0; }
+  .mj-map-embed iframe { width: 100%; }
+  .mj-map-address {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--white);
+    border-top: 1px solid var(--beige);
+    font-size: 0.82rem; font-weight: 300;
+    color: rgba(8,9,12,0.5);
+  }
+  .mj-map-address strong {
+    font-weight: 600; color: var(--black);
+    font-size: 0.85rem;
+  }
+  .mj-map-pin { font-size: 1.4rem; }
+  .mj-dir-link {
+    margin-left: auto;
+    font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cobalt); text-decoration: none;
+    white-space: nowrap;
+  }
+  .mj-dir-link:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .mj-layout { grid-template-columns: 1fr; }
+    .mj-photo-col { display: flex; flex-direction: column; align-items: center; }
+    .mj-photo-wrap { max-width: 250px; }
+    .mj-details { grid-template-columns: 1fr; }
+    .mj-map-address { flex-wrap: wrap; }
+  }
+
 </style>
 </head>
 <body>
@@ -641,6 +738,7 @@
   </a>
   <div class="nav-links" id="navLinks">
     <a href="#services">Services</a>
+    <a href="#about">About</a>
     <a href="#results">Results</a>
     <a href="#instagram">Portfolio</a>
     <a href="#booking">Book</a>
@@ -658,7 +756,7 @@
   <div class="hero-content">
     <div class="hero-badge">Permanent Makeup & Piercing Studio</div>
     <h1 class="hero-title">Artistry That<br>Enhances <em>You</em></h1>
-    <p class="hero-desc">Precision microblading, lip blush, eyeliner & curated body piercings — crafted by Jamie Morara in Sumner, Washington.</p>
+    <p class="hero-desc">Precision microblading, lip blush, eyeliner & curated body piercings — crafted by Jamie Morara in Puyallup, Washington.</p>
     <div class="hero-actions">
       <a href="#booking" class="btn btn-gold">Book Appointment <span class="btn-arrow">→</span></a>
       <a href="#services" class="btn btn-ghost">Explore Services</a>
@@ -679,7 +777,7 @@
   <div class="trust-item"><span class="trust-icon">◈</span> Sterile Environment</div>
   <div class="trust-item"><span class="trust-icon">❋</span> Premium Pigments</div>
   <div class="trust-item"><span class="trust-icon">◎</span> Free Consultations</div>
-  <div class="trust-item"><span class="trust-icon">♡</span> Sumner, WA</div>
+  <div class="trust-item"><span class="trust-icon">♡</span> Puyallup, WA</div>
 </div>
 
 <!-- SERVICES -->
@@ -869,6 +967,67 @@
   </div>
 </section>
 
+
+<!-- MEET JAMIE -->
+<section class="meet-jamie" id="about">
+  <div class="mj-layout">
+    <div class="mj-photo-col reveal">
+      <div class="mj-photo-wrap">
+        <img src="data:image/png;base64,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" alt="Jamie Morara - Owner of Happily Ever Inked & Beauty Co" loading="lazy">
+      </div>
+      <div class="mj-name-card">
+        <h4>Jamie Morara</h4>
+        <span>Owner &amp; Artist</span>
+      </div>
+    </div>
+    <div class="mj-info-col reveal">
+      <div class="section-eyebrow">Meet Your Artist</div>
+      <h2 class="section-heading">Hi, I'm <em>Jamie</em></h2>
+      <p class="mj-bio">I'm the artist and owner behind Happily Ever Inked &amp; Beauty Co — a permanent makeup and body piercing studio based in Puyallup, Washington. I specialize in microblading brows, lip blush, eyeliner, and professional body piercing. Every service is tailored to enhance your natural beauty with precision, care, and artistry.</p>
+      <div class="mj-details">
+        <div class="mj-detail">
+          <h5>Studio Location</h5>
+          <p>105 B West Main Ave, Suite 111<br>Puyallup, WA 98371</p>
+        </div>
+        <div class="mj-detail">
+          <h5>Hours</h5>
+          <p>Tuesday — Saturday: By Appointment<br>Sunday &amp; Monday: Closed</p>
+        </div>
+        <div class="mj-detail">
+          <h5>Specialties</h5>
+          <p>Microblading · Lip Blush · Eyeliner<br>Body Piercing · Paramedical Tattoo</p>
+        </div>
+      </div>
+      <div class="mj-actions">
+        <a href="#booking" class="btn btn-cobalt">Book with Jamie <span class="btn-arrow">→</span></a>
+        <a href="https://instagram.com/happilyever.inkedandbeautyco" target="_blank" class="btn btn-outline">Follow on Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Maps -->
+  <div class="mj-map reveal">
+    <div class="mj-map-header">
+      <h3>Find the Studio</h3>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=105+B+West+Main+Ave+Suite+111+Puyallup+WA+98371" target="_blank" class="btn btn-outline" style="padding:0.6rem 1.4rem;font-size:0.6rem;">Get Directions <span class="btn-arrow">→</span></a>
+    </div>
+    <div class="mj-map-embed">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2717.5!2d-122.2930!3d47.1918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s105+B+West+Main+Ave+Suite+111+Puyallup+WA+98371!5e0!3m2!1sen!2sus!4v1700000000000"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <div class="mj-map-address">
+      <div class="mj-map-pin">📍</div>
+      <div>
+        <strong>Happily Ever Inked &amp; Beauty Co</strong><br>
+        <span>105 B West Main Ave, Suite 111, Puyallup, WA 98371</span>
+      </div>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=105+B+West+Main+Ave+Suite+111+Puyallup+WA+98371" target="_blank" class="mj-dir-link">Directions →</a>
+    </div>
+  </div>
+</section>
+
 <!-- BOOKING -->
 <section id="booking">
   <div class="section-eyebrow">Schedule</div>
@@ -922,7 +1081,7 @@
     <div class="contact-blocks">
       <div class="c-block reveal">
         <h4>Visit the Studio</h4>
-        <p>15404 Main St E<br>Sumner, WA 98390</p>
+        <p>105 B West Main Ave, Suite 111<br>Puyallup, WA 98371</p>
       </div>
       <div class="c-block reveal">
         <h4>Hours</h4>
@@ -959,12 +1118,13 @@
   <div class="ft-top">
     <div class="ft-brand">
       <div class="ft-logo">Happily Ever <em>Inked</em> & Beauty Co</div>
-      <p>Permanent makeup & body piercing by Jamie Morara. Enhancing natural beauty with precision, care, and artistry in Sumner, Washington.</p>
+      <p>Permanent makeup & body piercing by Jamie Morara. Enhancing natural beauty with precision, care, and artistry in Puyallup, Washington.</p>
     </div>
     <div class="ft-cols">
       <div class="ft-col">
         <h5>Navigate</h5>
-        <a href="#home">Home</a><a href="#services">Services</a><a href="#results">Results</a>
+        <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a>
+    <a href="#results">Results</a>
     <a href="#instagram">Portfolio</a><a href="#booking">Book</a><a href="#contact">Contact</a>
       </div>
       <div class="ft-col">
@@ -982,7 +1142,7 @@
   <div class="ft-bottom">
     <span>&copy; 2026 Happily Ever Inked & Beauty Co. All rights reserved.</span>
     <span class="ft-boho">✦ ✦ ✦ ✦ ✦ ✦ ✦</span>
-    <span>Sumner, WA</span>
+    <span>Puyallup, WA</span>
   </div>
 </footer>
 
