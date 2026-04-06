@@ -2352,7 +2352,7 @@ function loadFaceApi() {
 }
 
 async function loadModels() {
-  var url = 'https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights';
+  var url = 'https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js@master/weights';
   await faceapi.nets.tinyFaceDetector.loadFromUri(url);
   await faceapi.nets.faceLandmark68Net.loadFromUri(url);
 }
@@ -2423,7 +2423,13 @@ async function handlePhotoUpload(file) {
     console.error('Try-on error:', err);
     loading.style.display = 'none';
     showTryonState('error');
-    document.getElementById('tryonErrorMsg').textContent = err.message || 'Something went wrong. Please try again.';
+    var userMsg = 'Something went wrong. Please check your internet connection and try again.';
+    if (err.message && err.message.indexOf('fetch') !== -1) {
+      userMsg = 'Could not download face detection models. Please check your internet connection and try again.';
+    } else if (err.message && err.message.indexOf('face') !== -1) {
+      userMsg = "We couldn\u2019t detect a face in your photo. Try a well-lit, front-facing selfie.";
+    }
+    document.getElementById('tryonErrorMsg').textContent = userMsg;
   }
 }
 
