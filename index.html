@@ -1032,6 +1032,144 @@ max-width: 600px; margin: 0 auto 1.5rem;
 line-height: 1.6;
 }
 
+/* ─── VIRTUAL TRY-ON ─── */
+.tryon-section { background: var(--white); padding: 6rem 7%; }
+.tryon-inner { max-width: 800px; margin: 0 auto; }
+
+.tryon-start-card {
+  background: var(--cream); border: 1px solid var(--beige);
+  padding: 3rem 2.5rem; text-align: center;
+  max-width: 520px; margin: 0 auto;
+}
+.tryon-start-icon {
+  font-size: 2.5rem; color: var(--cobalt); margin-bottom: 1rem;
+}
+.tryon-start-card h3 {
+  font-family: var(--font-display); font-size: 1.5rem;
+  font-weight: 500; color: var(--black); margin-bottom: 0.7rem;
+}
+.tryon-start-card > p {
+  font-size: 0.88rem; font-weight: 300; line-height: 1.7;
+  color: rgba(8,9,12,0.5); margin-bottom: 1.5rem;
+}
+.tryon-privacy {
+  display: block; margin-top: 1rem;
+  font-size: 0.68rem; font-weight: 400; color: rgba(8,9,12,0.3);
+  letter-spacing: 0.03em;
+}
+
+.tryon-viewport {
+  position: relative; width: 100%; max-width: 640px;
+  margin: 0 auto 1.5rem; background: var(--charcoal);
+  overflow: hidden; border: 1px solid var(--beige);
+  aspect-ratio: 4/3;
+}
+.tryon-viewport video {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scaleX(-1);
+}
+.tryon-viewport canvas {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.tryon-loading {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: rgba(8,9,12,0.75);
+  color: var(--white); gap: 1rem; z-index: 5;
+}
+.tryon-loading span {
+  font-size: 0.78rem; font-weight: 400;
+  letter-spacing: 0.05em;
+}
+.tryon-spinner {
+  width: 36px; height: 36px;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: tryonSpin 0.8s linear infinite;
+}
+@keyframes tryonSpin { to { transform: rotate(360deg); } }
+
+.tryon-hint {
+  position: absolute; bottom: 1rem; left: 50%;
+  transform: translateX(-50%); z-index: 4;
+  background: rgba(8,9,12,0.6); color: var(--white);
+  padding: 0.5rem 1.2rem; font-size: 0.72rem;
+  font-weight: 400; letter-spacing: 0.03em;
+  backdrop-filter: blur(6px); white-space: nowrap;
+}
+
+.tryon-controls {
+  display: flex; flex-wrap: wrap; gap: 1.5rem;
+  align-items: flex-start; justify-content: center;
+  padding: 1.5rem; background: var(--cream);
+  border: 1px solid var(--beige);
+  max-width: 640px; margin: 0 auto 1.5rem;
+}
+.tryon-control-group {
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.tryon-control-group > label {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(8,9,12,0.38);
+}
+.tryon-style-btns { display: flex; gap: 0.4rem; }
+.tryon-style-btn {
+  font-family: var(--font-body); font-size: 0.7rem;
+  font-weight: 500; padding: 0.5rem 1rem;
+  border: 1px solid var(--beige); background: var(--white);
+  color: var(--charcoal); cursor: pointer;
+  transition: all 0.3s; border-radius: 3px;
+}
+.tryon-style-btn:hover { border-color: var(--cobalt); }
+.tryon-style-btn.active {
+  background: var(--cobalt); color: var(--white);
+  border-color: var(--cobalt);
+}
+
+.tryon-color-btns { display: flex; gap: 0.4rem; }
+.tryon-color-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid var(--beige); cursor: pointer;
+  transition: all 0.3s;
+}
+.tryon-color-btn:hover { border-color: var(--cobalt); transform: scale(1.1); }
+.tryon-color-btn.active {
+  border-color: var(--cobalt);
+  box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--cobalt);
+}
+
+.tryon-control-group .calc-slider { max-width: 180px; }
+
+.tryon-actions-row {
+  display: flex; gap: 0.6rem; align-items: center;
+  width: 100%; justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.tryon-cta {
+  text-align: center; max-width: 640px; margin: 0 auto;
+}
+.tryon-cta p {
+  font-family: var(--font-display); font-size: 1.15rem;
+  font-weight: 400; color: var(--charcoal);
+  margin-bottom: 0.8rem;
+}
+
+.tryon-error {
+  text-align: center; padding: 2.5rem;
+  background: var(--cream); border: 1px solid var(--beige);
+  max-width: 520px; margin: 0 auto;
+}
+.tryon-error p {
+  font-size: 0.88rem; font-weight: 300; line-height: 1.7;
+  color: rgba(8,9,12,0.5); margin-bottom: 1.2rem;
+}
+
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE — Consolidated breakpoints
    ══════════════════════════════════════════════════════════ */
@@ -1103,6 +1241,12 @@ line-height: 1.6;
   .hero-arc { opacity: 0.5; }
   .stmt-deco { opacity: 0.5; }
 
+  /* Try-On */
+  .tryon-section { padding: 4rem 5%; }
+  .tryon-controls { flex-direction: column; align-items: stretch; }
+  .tryon-actions-row { flex-direction: column; }
+  .tryon-actions-row .btn { width: 100%; justify-content: center; }
+
   /* Footer */
   .ft-cols { gap: 2rem; }
   .ft-top { gap: 1.5rem; }
@@ -1172,6 +1316,16 @@ line-height: 1.6;
   /* Booking form */
   .book-form h3 { font-size: 1.35rem; }
   .cal-header h3 { font-size: 1.1rem; }
+
+  /* Try-On */
+  .tryon-section { padding: 3rem 5%; }
+  .tryon-start-card { padding: 2rem 1.5rem; }
+  .tryon-start-card h3 { font-size: 1.25rem; }
+  .tryon-viewport { aspect-ratio: 3/4; }
+  .tryon-style-btns { flex-wrap: wrap; }
+  .tryon-style-btn { flex: 1; min-width: 80px; text-align: center; }
+  .tryon-color-btn { width: 36px; height: 36px; }
+  .tryon-control-group .calc-slider { max-width: 100%; }
 }
 
 /* ─── Small phones ─── */
@@ -1222,6 +1376,7 @@ line-height: 1.6;
   <div class="nav-links" id="navLinks">
     <a href="#services">Services</a>
     <a href="#why-brows">Why Brows</a>
+    <a href="#tryon">Try-On</a>
     <a href="#about">About</a>
     <a href="#results">Results</a>
     <a href="#instagram">Portfolio</a>
@@ -1575,6 +1730,81 @@ line-height: 1.6;
   </div>
 </section>
 
+<!-- VIRTUAL TRY-ON -->
+
+<section class="tryon-section" id="tryon">
+  <div class="tryon-inner">
+    <div class="section-eyebrow" style="justify-content:center;">See It On You</div>
+    <h2 class="section-heading" style="text-align:center;">Try Microblading <em>Virtually</em></h2>
+    <p class="section-lead" style="text-align:center;margin-inline:auto;">See what perfectly shaped, natural-looking brows would look like on your face — right from your phone or computer.</p>
+
+    <!-- Pre-camera state -->
+    <div class="tryon-start" id="tryonStart">
+      <div class="tryon-start-card">
+        <div class="tryon-start-icon">✧</div>
+        <h3>Virtual Brow Preview</h3>
+        <p>Your camera will show your face with enhanced microblading brows overlaid in real-time. No photos are saved or uploaded.</p>
+        <button class="btn btn-cobalt" id="startTryonBtn" onclick="startTryon()">Start Camera <span class="btn-arrow">→</span></button>
+        <span class="tryon-privacy">Your camera stays on your device. Nothing is recorded.</span>
+      </div>
+    </div>
+
+    <!-- Active camera state -->
+    <div class="tryon-active" id="tryonActive" style="display:none;">
+      <div class="tryon-viewport">
+        <video id="tryonVideo" autoplay playsinline muted></video>
+        <canvas id="tryonCanvas"></canvas>
+        <div class="tryon-loading" id="tryonLoading">
+          <div class="tryon-spinner"></div>
+          <span>Loading face detection...</span>
+        </div>
+        <div class="tryon-hint" id="tryonHint" style="display:none;">
+          <span>Position your face in the frame</span>
+        </div>
+      </div>
+
+      <div class="tryon-controls">
+        <div class="tryon-control-group">
+          <label>Style</label>
+          <div class="tryon-style-btns" id="styleButtons">
+            <button class="tryon-style-btn active" data-style="natural" onclick="setBrowStyle('natural')">Natural</button>
+            <button class="tryon-style-btn" data-style="bold" onclick="setBrowStyle('bold')">Bold</button>
+            <button class="tryon-style-btn" data-style="soft" onclick="setBrowStyle('soft')">Soft Arch</button>
+          </div>
+        </div>
+        <div class="tryon-control-group">
+          <label>Color</label>
+          <div class="tryon-color-btns" id="colorButtons">
+            <button class="tryon-color-btn active" data-color="#4A3728" onclick="setBrowColor('#4A3728')" style="background:#4A3728;" title="Dark Brown"></button>
+            <button class="tryon-color-btn" data-color="#6B4C3B" onclick="setBrowColor('#6B4C3B')" style="background:#6B4C3B;" title="Medium Brown"></button>
+            <button class="tryon-color-btn" data-color="#8B6914" onclick="setBrowColor('#8B6914')" style="background:#8B6914;" title="Light Brown"></button>
+            <button class="tryon-color-btn" data-color="#2C1810" onclick="setBrowColor('#2C1810')" style="background:#2C1810;" title="Black Brown"></button>
+          </div>
+        </div>
+        <div class="tryon-control-group">
+          <label>Intensity</label>
+          <input type="range" id="browIntensity" min="30" max="100" value="70" class="calc-slider" oninput="setBrowIntensity(this.value)">
+        </div>
+        <div class="tryon-actions-row">
+          <button class="btn btn-outline" onclick="captureSnapshot()">Save Screenshot</button>
+          <button class="btn btn-cobalt" onclick="stopTryon()">Stop Camera</button>
+        </div>
+      </div>
+
+      <div class="tryon-cta">
+        <p>Love your new look?</p>
+        <a href="#booking" class="btn btn-gold">Book Your Microblading <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div class="tryon-error" id="tryonError" style="display:none;">
+      <p>Unable to access camera. Please allow camera permissions in your browser settings and try again, or use a different browser.</p>
+      <button class="btn btn-outline" onclick="startTryon()">Retry</button>
+    </div>
+  </div>
+</section>
+
 <!-- CONVINCE YOUR HUSBAND -->
 
 <section class="husband-section">
@@ -1793,7 +2023,7 @@ line-height: 1.6;
       <div class="ft-col">
         <h5>Navigate</h5>
         <a href="#home">Home</a><a href="#services">Services</a><a href="#why-brows">Why Brows</a>
-    <a href="#about">About</a>
+    <a href="#tryon">Try-On</a><a href="#about">About</a>
     <a href="#results">Results</a>
     <a href="#instagram">Portfolio</a><a href="#booking">Book</a><a href="#contact">Contact</a>
       </div>
@@ -1991,6 +2221,314 @@ function votePoll(val) {
     document.getElementById('bar4').style.width = '9%';
     document.getElementById('bar5').style.width = '4%';
   }, 100);
+}
+
+/* ─── VIRTUAL TRY-ON ─── */
+let tryonRunning = false;
+let tryonStream = null;
+let browStyle = 'natural';
+let browColor = '#4A3728';
+let browIntensity = 70;
+let noFaceCount = 0;
+
+function loadFaceApi() {
+  return new Promise((resolve, reject) => {
+    if (window.faceapi) return resolve();
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js';
+    s.onload = resolve;
+    s.onerror = () => reject(new Error('Failed to load face detection library'));
+    document.head.appendChild(s);
+  });
+}
+
+async function loadModels() {
+  const url = 'https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights';
+  await faceapi.nets.tinyFaceDetector.loadFromUri(url);
+  await faceapi.nets.faceLandmark68Net.loadFromUri(url);
+}
+
+async function startTryon() {
+  const startEl = document.getElementById('tryonStart');
+  const activeEl = document.getElementById('tryonActive');
+  const errorEl = document.getElementById('tryonError');
+  const loadingEl = document.getElementById('tryonLoading');
+  const video = document.getElementById('tryonVideo');
+
+  errorEl.style.display = 'none';
+  startEl.style.display = 'none';
+  activeEl.style.display = 'block';
+  loadingEl.style.display = 'flex';
+
+  try {
+    await loadFaceApi();
+    await loadModels();
+
+    tryonStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } }
+    });
+    video.srcObject = tryonStream;
+    await video.play();
+
+    const canvas = document.getElementById('tryonCanvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    loadingEl.style.display = 'none';
+    tryonRunning = true;
+    noFaceCount = 0;
+    detectAndDraw();
+  } catch (err) {
+    console.error('Try-on error:', err);
+    activeEl.style.display = 'none';
+    errorEl.style.display = 'block';
+    if (tryonStream) {
+      tryonStream.getTracks().forEach(t => t.stop());
+      tryonStream = null;
+    }
+  }
+}
+
+function stopTryon() {
+  tryonRunning = false;
+  if (tryonStream) {
+    tryonStream.getTracks().forEach(t => t.stop());
+    tryonStream = null;
+  }
+  const video = document.getElementById('tryonVideo');
+  video.srcObject = null;
+  document.getElementById('tryonActive').style.display = 'none';
+  document.getElementById('tryonStart').style.display = 'block';
+  document.getElementById('tryonHint').style.display = 'none';
+}
+
+async function detectAndDraw() {
+  if (!tryonRunning) return;
+  const video = document.getElementById('tryonVideo');
+  const canvas = document.getElementById('tryonCanvas');
+  const ctx = canvas.getContext('2d');
+
+  try {
+    const detection = await faceapi
+      .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions({ inputSize: 320, scoreThreshold: 0.5 }))
+      .withFaceLandmarks();
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (detection) {
+      noFaceCount = 0;
+      document.getElementById('tryonHint').style.display = 'none';
+      const landmarks = detection.landmarks;
+      const leftBrow = landmarks.getLeftEyeBrow();
+      const rightBrow = landmarks.getRightEyeBrow();
+      const leftEye = landmarks.getLeftEye();
+      const rightEye = landmarks.getRightEye();
+      const jaw = landmarks.getJawOutline();
+      const faceWidth = jaw[16].x - jaw[0].x;
+
+      // Mirror the canvas to match mirrored video
+      ctx.save();
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+
+      drawMicrobladedBrow(ctx, leftBrow, leftEye, faceWidth, false);
+      drawMicrobladedBrow(ctx, rightBrow, rightEye, faceWidth, true);
+
+      ctx.restore();
+    } else {
+      noFaceCount++;
+      if (noFaceCount > 15) {
+        document.getElementById('tryonHint').style.display = 'block';
+      }
+    }
+  } catch (e) {
+    // Detection can fail on some frames, just skip
+  }
+
+  if (tryonRunning) requestAnimationFrame(detectAndDraw);
+}
+
+function drawMicrobladedBrow(ctx, browPoints, eyePoints, faceWidth, isRight) {
+  const intensity = browIntensity / 100;
+  const pts = browPoints.map(p => ({ x: p.x, y: p.y }));
+
+  // Calculate eye center for reference
+  const eyeCenterY = eyePoints.reduce((s, p) => s + p.y, 0) / eyePoints.length;
+
+  // Brow thickness proportional to face size
+  const baseThickness = faceWidth * 0.028;
+  const thickness = browStyle === 'bold' ? baseThickness * 1.5 :
+                    browStyle === 'soft' ? baseThickness * 1.1 : baseThickness;
+
+  // Arch modification based on style
+  const archPts = pts.map((p, i) => {
+    let yOffset = 0;
+    const t = i / (pts.length - 1); // 0 to 1 along brow
+
+    if (browStyle === 'soft') {
+      // Softer arch - raise the middle more
+      yOffset = -Math.sin(t * Math.PI) * thickness * 0.6;
+    } else if (browStyle === 'bold') {
+      // Bolder - raise peak at ~60%
+      yOffset = -Math.sin(t * Math.PI * 0.8 + 0.3) * thickness * 0.4;
+    } else {
+      // Natural - subtle lift at arch
+      yOffset = -Math.sin(t * Math.PI) * thickness * 0.3;
+    }
+
+    return { x: p.x, y: p.y + yOffset };
+  });
+
+  // Create upper and lower contours
+  const upper = [];
+  const lower = [];
+
+  for (let i = 0; i < archPts.length; i++) {
+    const t = i / (archPts.length - 1);
+    // Brow is thickest in the middle, tapers at ends
+    const thicknessMult = 0.3 + 0.7 * Math.sin(t * Math.PI);
+    const h = thickness * thicknessMult;
+
+    // Calculate perpendicular direction
+    let dx, dy;
+    if (i === 0) {
+      dx = archPts[1].x - archPts[0].x;
+      dy = archPts[1].y - archPts[0].y;
+    } else if (i === archPts.length - 1) {
+      dx = archPts[i].x - archPts[i - 1].x;
+      dy = archPts[i].y - archPts[i - 1].y;
+    } else {
+      dx = archPts[i + 1].x - archPts[i - 1].x;
+      dy = archPts[i + 1].y - archPts[i - 1].y;
+    }
+    const len = Math.sqrt(dx * dx + dy * dy) || 1;
+    const nx = -dy / len;
+    const ny = dx / len;
+
+    upper.push({ x: archPts[i].x + nx * h * 0.6, y: archPts[i].y + ny * h * 0.6 });
+    lower.push({ x: archPts[i].x - nx * h * 0.4, y: archPts[i].y - ny * h * 0.4 });
+  }
+
+  // Parse color
+  const col = browColor;
+  const r = parseInt(col.slice(1, 3), 16);
+  const g = parseInt(col.slice(3, 5), 16);
+  const b = parseInt(col.slice(5, 7), 16);
+
+  // Draw filled brow shape with gradient
+  ctx.save();
+  ctx.globalAlpha = intensity * 0.35;
+  ctx.beginPath();
+  ctx.moveTo(upper[0].x, upper[0].y);
+  for (let i = 1; i < upper.length; i++) {
+    const xc = (upper[i].x + upper[Math.min(i + 1, upper.length - 1)].x) / 2;
+    const yc = (upper[i].y + upper[Math.min(i + 1, upper.length - 1)].y) / 2;
+    ctx.quadraticCurveTo(upper[i].x, upper[i].y, xc, yc);
+  }
+  for (let i = lower.length - 1; i >= 0; i--) {
+    const prev = i > 0 ? i - 1 : 0;
+    const xc = (lower[i].x + lower[prev].x) / 2;
+    const yc = (lower[i].y + lower[prev].y) / 2;
+    ctx.quadraticCurveTo(lower[i].x, lower[i].y, xc, yc);
+  }
+  ctx.closePath();
+  ctx.fillStyle = `rgba(${r},${g},${b},1)`;
+  ctx.fill();
+  ctx.restore();
+
+  // Draw hair strokes for microblading effect
+  const numStrokes = browStyle === 'bold' ? 45 : browStyle === 'soft' ? 30 : 35;
+
+  ctx.save();
+  ctx.globalAlpha = intensity * 0.65;
+  ctx.strokeStyle = `rgba(${r},${g},${b},1)`;
+  ctx.lineCap = 'round';
+
+  for (let s = 0; s < numStrokes; s++) {
+    const t = (s + 0.5) / numStrokes;
+    // Position along brow
+    const idx = t * (archPts.length - 1);
+    const i0 = Math.floor(idx);
+    const i1 = Math.min(i0 + 1, archPts.length - 1);
+    const frac = idx - i0;
+
+    const cx = archPts[i0].x + (archPts[i1].x - archPts[i0].x) * frac;
+    const cy = archPts[i0].y + (archPts[i1].y - archPts[i0].y) * frac;
+
+    // Stroke direction - inner brow goes up, outer goes more angled
+    const baseAngle = isRight ?
+      (-Math.PI / 2 + t * 0.8 - 0.3) :
+      (-Math.PI / 2 - t * 0.8 + 0.3);
+    const angle = baseAngle + (Math.random() - 0.5) * 0.3;
+
+    // Stroke length proportional to thickness at this point
+    const thickHere = thickness * (0.3 + 0.7 * Math.sin(t * Math.PI));
+    const strokeLen = thickHere * (0.7 + Math.random() * 0.6);
+
+    ctx.lineWidth = 0.5 + Math.random() * 1.0;
+    ctx.globalAlpha = intensity * (0.35 + Math.random() * 0.35);
+
+    ctx.beginPath();
+    ctx.moveTo(
+      cx - Math.cos(angle) * strokeLen * 0.5,
+      cy - Math.sin(angle) * strokeLen * 0.5
+    );
+    ctx.lineTo(
+      cx + Math.cos(angle) * strokeLen * 0.5,
+      cy + Math.sin(angle) * strokeLen * 0.5
+    );
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function setBrowStyle(style) {
+  browStyle = style;
+  document.querySelectorAll('.tryon-style-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.style === style);
+  });
+}
+
+function setBrowColor(color) {
+  browColor = color;
+  document.querySelectorAll('.tryon-color-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.color === color);
+  });
+}
+
+function setBrowIntensity(val) {
+  browIntensity = parseInt(val);
+}
+
+function captureSnapshot() {
+  const video = document.getElementById('tryonVideo');
+  const browCanvas = document.getElementById('tryonCanvas');
+  const offscreen = document.createElement('canvas');
+  offscreen.width = video.videoWidth;
+  offscreen.height = video.videoHeight;
+  const ctx = offscreen.getContext('2d');
+
+  // Draw mirrored video
+  ctx.save();
+  ctx.translate(offscreen.width, 0);
+  ctx.scale(-1, 1);
+  ctx.drawImage(video, 0, 0);
+  ctx.restore();
+
+  // Draw brow overlay
+  ctx.drawImage(browCanvas, 0, 0);
+
+  // Add watermark
+  ctx.fillStyle = 'rgba(255,255,255,0.6)';
+  ctx.font = '14px "DM Sans", sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText('Happily Ever Inked & Beauty Co', offscreen.width - 12, offscreen.height - 12);
+
+  // Trigger download
+  const link = document.createElement('a');
+  link.download = 'my-microblading-preview.png';
+  link.href = offscreen.toDataURL('image/png');
+  link.click();
 }
 </script>
 
