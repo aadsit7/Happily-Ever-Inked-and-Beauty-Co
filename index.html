@@ -1036,39 +1036,62 @@ line-height: 1.6;
 .tryon-section { background: var(--white); padding: 6rem 7%; }
 .tryon-inner { max-width: 800px; margin: 0 auto; }
 
-.tryon-start-card {
+/* Upload card */
+.tryon-upload-card {
   background: var(--cream); border: 1px solid var(--beige);
-  padding: 3rem 2.5rem; text-align: center;
-  max-width: 520px; margin: 0 auto;
+  padding: 3.5rem 2.5rem; text-align: center;
+  max-width: 520px; margin: 0 auto 3rem;
+  transition: all 0.5s var(--ease-out-expo);
 }
-.tryon-start-icon {
-  font-size: 2.5rem; color: var(--cobalt); margin-bottom: 1rem;
+.tryon-upload-card:hover { box-shadow: 0 16px 40px -8px rgba(26,58,143,0.08); }
+.tryon-upload-icon {
+  width: 70px; height: 70px; margin: 0 auto 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--cobalt); border-radius: 50%;
+  font-size: 1.6rem; color: var(--cobalt);
 }
-.tryon-start-card h3 {
+.tryon-upload-card h3 {
   font-family: var(--font-display); font-size: 1.5rem;
   font-weight: 500; color: var(--black); margin-bottom: 0.7rem;
 }
-.tryon-start-card > p {
+.tryon-upload-card > p {
   font-size: 0.88rem; font-weight: 300; line-height: 1.7;
   color: rgba(8,9,12,0.5); margin-bottom: 1.5rem;
 }
+.tryon-file-input { display: none; }
+.tryon-camera-link {
+  display: block; margin-top: 0.8rem;
+  font-size: 0.72rem; font-weight: 500;
+  color: var(--cobalt); cursor: pointer;
+  text-decoration: none; letter-spacing: 0.03em;
+  transition: color 0.3s;
+}
+.tryon-camera-link:hover { color: var(--cobalt-mid); text-decoration: underline; }
 .tryon-privacy {
-  display: block; margin-top: 1rem;
+  display: block; margin-top: 1.2rem;
   font-size: 0.68rem; font-weight: 400; color: rgba(8,9,12,0.3);
   letter-spacing: 0.03em;
 }
 
+/* Result viewport */
 .tryon-viewport {
   position: relative; width: 100%; max-width: 640px;
   margin: 0 auto 1.5rem; background: var(--charcoal);
   overflow: hidden; border: 1px solid var(--beige);
-  aspect-ratio: 4/3;
 }
 .tryon-viewport video {
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; height: auto; display: block;
   transform: scaleX(-1);
 }
 .tryon-viewport canvas {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.tryon-viewport .tryon-photo-canvas {
+  position: relative; width: 100%; height: auto; display: block;
+}
+.tryon-viewport .tryon-overlay-canvas {
   position: absolute; top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none;
@@ -1102,6 +1125,7 @@ line-height: 1.6;
   backdrop-filter: blur(6px); white-space: nowrap;
 }
 
+/* Controls */
 .tryon-controls {
   display: flex; flex-wrap: wrap; gap: 1.5rem;
   align-items: flex-start; justify-content: center;
@@ -1130,7 +1154,6 @@ line-height: 1.6;
   background: var(--cobalt); color: var(--white);
   border-color: var(--cobalt);
 }
-
 .tryon-color-btns { display: flex; gap: 0.4rem; }
 .tryon-color-btn {
   width: 32px; height: 32px; border-radius: 50%;
@@ -1142,7 +1165,6 @@ line-height: 1.6;
   border-color: var(--cobalt);
   box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--cobalt);
 }
-
 .tryon-control-group .calc-slider { max-width: 180px; }
 
 .tryon-actions-row {
@@ -1150,9 +1172,8 @@ line-height: 1.6;
   width: 100%; justify-content: center;
   margin-top: 0.5rem;
 }
-
 .tryon-cta {
-  text-align: center; max-width: 640px; margin: 0 auto;
+  text-align: center; max-width: 640px; margin: 0 auto 3rem;
 }
 .tryon-cta p {
   font-family: var(--font-display); font-size: 1.15rem;
@@ -1160,14 +1181,51 @@ line-height: 1.6;
   margin-bottom: 0.8rem;
 }
 
+/* Error state */
 .tryon-error {
-  text-align: center; padding: 2.5rem;
+  text-align: center; padding: 2rem;
   background: var(--cream); border: 1px solid var(--beige);
-  max-width: 520px; margin: 0 auto;
+  max-width: 520px; margin: 0 auto 2rem;
 }
 .tryon-error p {
   font-size: 0.88rem; font-weight: 300; line-height: 1.7;
   color: rgba(8,9,12,0.5); margin-bottom: 1.2rem;
+}
+
+/* Inspiration gallery */
+.tryon-inspiration {
+  max-width: 800px; margin: 0 auto;
+}
+.tryon-inspiration h3 {
+  font-family: var(--font-display); font-size: 1.15rem;
+  font-weight: 500; text-align: center; color: var(--black);
+  margin-bottom: 1.2rem;
+}
+.tryon-inspo-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.tryon-inspo-card {
+  background: var(--cream); border: 1px solid var(--beige);
+  padding: 1.8rem 1.2rem; text-align: center;
+  transition: all 0.5s var(--ease-out-expo);
+}
+.tryon-inspo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -6px rgba(0,0,0,0.08);
+}
+.tryon-inspo-brow {
+  width: 80px; height: 30px; margin: 0 auto 1rem;
+  position: relative;
+}
+.tryon-inspo-brow svg { width: 100%; height: 100%; }
+.tryon-inspo-card h4 {
+  font-family: var(--font-display); font-size: 1rem;
+  font-weight: 500; color: var(--cobalt); margin-bottom: 0.4rem;
+}
+.tryon-inspo-card p {
+  font-size: 0.78rem; font-weight: 300;
+  color: rgba(8,9,12,0.45); line-height: 1.6;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -1319,13 +1377,13 @@ line-height: 1.6;
 
   /* Try-On */
   .tryon-section { padding: 3rem 5%; }
-  .tryon-start-card { padding: 2rem 1.5rem; }
-  .tryon-start-card h3 { font-size: 1.25rem; }
-  .tryon-viewport { aspect-ratio: 3/4; }
+  .tryon-upload-card { padding: 2rem 1.5rem; }
+  .tryon-upload-card h3 { font-size: 1.25rem; }
   .tryon-style-btns { flex-wrap: wrap; }
   .tryon-style-btn { flex: 1; min-width: 80px; text-align: center; }
   .tryon-color-btn { width: 36px; height: 36px; }
   .tryon-control-group .calc-slider { max-width: 100%; }
+  .tryon-inspo-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
 }
 
 /* ─── Small phones ─── */
@@ -1736,27 +1794,30 @@ line-height: 1.6;
   <div class="tryon-inner">
     <div class="section-eyebrow" style="justify-content:center;">See It On You</div>
     <h2 class="section-heading" style="text-align:center;">Try Microblading <em>Virtually</em></h2>
-    <p class="section-lead" style="text-align:center;margin-inline:auto;">See what perfectly shaped, natural-looking brows would look like on your face — right from your phone or computer.</p>
+    <p class="section-lead" style="text-align:center;margin-inline:auto;">Upload a selfie and see what beautifully shaped, natural-looking brows would look like on you — instantly.</p>
 
-    <!-- Pre-camera state -->
-    <div class="tryon-start" id="tryonStart">
-      <div class="tryon-start-card">
-        <div class="tryon-start-icon">✧</div>
-        <h3>Virtual Brow Preview</h3>
-        <p>Your camera will show your face with enhanced microblading brows overlaid in real-time. No photos are saved or uploaded.</p>
-        <button class="btn btn-cobalt" id="startTryonBtn" onclick="startTryon()">Start Camera <span class="btn-arrow">→</span></button>
-        <span class="tryon-privacy">Your camera stays on your device. Nothing is recorded.</span>
-      </div>
+    <!-- Upload card (primary entry) -->
+    <div class="tryon-upload-card reveal" id="tryonUploadCard">
+      <div class="tryon-upload-icon">✧</div>
+      <h3>See It On Your Face</h3>
+      <p>Upload a front-facing selfie and our brow tool will show you a personalized microblading preview — right on your photo.</p>
+      <input type="file" id="tryonFileInput" class="tryon-file-input" accept="image/*" onchange="handlePhotoUpload(this.files[0])">
+      <button class="btn btn-cobalt" onclick="document.getElementById('tryonFileInput').click()">Upload a Selfie <span class="btn-arrow">&rarr;</span></button>
+      <a class="tryon-camera-link" id="tryonCameraLink" onclick="startCamera()" style="display:none;">Or use your live camera</a>
+      <span class="tryon-privacy">Your photo stays on your device. Nothing is uploaded or stored.</span>
     </div>
 
-    <!-- Active camera state -->
-    <div class="tryon-active" id="tryonActive" style="display:none;">
-      <div class="tryon-viewport">
-        <video id="tryonVideo" autoplay playsinline muted></video>
-        <canvas id="tryonCanvas"></canvas>
-        <div class="tryon-loading" id="tryonLoading">
+    <!-- Results view (hidden until photo/camera active) -->
+    <div id="tryonResultView" style="display:none;">
+      <div class="tryon-viewport" id="tryonViewport">
+        <!-- For photo mode: two stacked canvases -->
+        <canvas id="tryonPhotoCanvas" class="tryon-photo-canvas"></canvas>
+        <canvas id="tryonOverlayCanvas" class="tryon-overlay-canvas"></canvas>
+        <!-- For camera mode: video + overlay canvas -->
+        <video id="tryonVideo" autoplay playsinline muted style="display:none;"></video>
+        <div class="tryon-loading" id="tryonLoading" style="display:none;">
           <div class="tryon-spinner"></div>
-          <span>Loading face detection...</span>
+          <span id="tryonLoadMsg">Analyzing your photo...</span>
         </div>
         <div class="tryon-hint" id="tryonHint" style="display:none;">
           <span>Position your face in the frame</span>
@@ -1766,7 +1827,7 @@ line-height: 1.6;
       <div class="tryon-controls">
         <div class="tryon-control-group">
           <label>Style</label>
-          <div class="tryon-style-btns" id="styleButtons">
+          <div class="tryon-style-btns">
             <button class="tryon-style-btn active" data-style="natural" onclick="setBrowStyle('natural')">Natural</button>
             <button class="tryon-style-btn" data-style="bold" onclick="setBrowStyle('bold')">Bold</button>
             <button class="tryon-style-btn" data-style="soft" onclick="setBrowStyle('soft')">Soft Arch</button>
@@ -1774,7 +1835,7 @@ line-height: 1.6;
         </div>
         <div class="tryon-control-group">
           <label>Color</label>
-          <div class="tryon-color-btns" id="colorButtons">
+          <div class="tryon-color-btns">
             <button class="tryon-color-btn active" data-color="#4A3728" onclick="setBrowColor('#4A3728')" style="background:#4A3728;" title="Dark Brown"></button>
             <button class="tryon-color-btn" data-color="#6B4C3B" onclick="setBrowColor('#6B4C3B')" style="background:#6B4C3B;" title="Medium Brown"></button>
             <button class="tryon-color-btn" data-color="#8B6914" onclick="setBrowColor('#8B6914')" style="background:#8B6914;" title="Light Brown"></button>
@@ -1786,21 +1847,58 @@ line-height: 1.6;
           <input type="range" id="browIntensity" min="30" max="100" value="70" class="calc-slider" oninput="setBrowIntensity(this.value)">
         </div>
         <div class="tryon-actions-row">
-          <button class="btn btn-outline" onclick="captureSnapshot()">Save Screenshot</button>
-          <button class="btn btn-cobalt" onclick="stopTryon()">Stop Camera</button>
+          <button class="btn btn-outline" onclick="captureSnapshot()">Save Photo</button>
+          <button class="btn btn-cobalt" onclick="tryAnother()">Try Another</button>
         </div>
       </div>
 
       <div class="tryon-cta">
         <p>Love your new look?</p>
-        <a href="#booking" class="btn btn-gold">Book Your Microblading <span class="btn-arrow">→</span></a>
+        <a href="#booking" class="btn btn-gold">Book Your Microblading <span class="btn-arrow">&rarr;</span></a>
       </div>
     </div>
 
     <!-- Error state -->
     <div class="tryon-error" id="tryonError" style="display:none;">
-      <p>Unable to access camera. Please allow camera permissions in your browser settings and try again, or use a different browser.</p>
-      <button class="btn btn-outline" onclick="startTryon()">Retry</button>
+      <p id="tryonErrorMsg">We couldn't detect a face in your photo. Try a well-lit, front-facing selfie.</p>
+      <button class="btn btn-outline" onclick="tryAnother()">Try Another Photo</button>
+    </div>
+
+    <!-- Inspiration gallery (always visible) -->
+    <div class="tryon-inspiration reveal">
+      <h3>Explore the Styles</h3>
+      <div class="tryon-inspo-grid">
+        <div class="tryon-inspo-card">
+          <div class="tryon-inspo-brow">
+            <svg viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 18 Q12 4, 40 6 Q56 7, 76 14" stroke="#4A3728" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M8 16 Q16 6, 40 8 Q54 9, 74 14" stroke="#4A3728" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h4>Natural</h4>
+          <p>Soft, hair-like strokes that follow your natural brow shape for an effortless look.</p>
+        </div>
+        <div class="tryon-inspo-card">
+          <div class="tryon-inspo-brow">
+            <svg viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 20 Q12 2, 42 4 Q58 5, 76 14" stroke="#4A3728" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <path d="M6 18 Q14 4, 42 6 Q56 7, 74 14" stroke="#4A3728" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h4>Bold</h4>
+          <p>Fuller, more defined brows with extra density and a stronger presence.</p>
+        </div>
+        <div class="tryon-inspo-card">
+          <div class="tryon-inspo-brow">
+            <svg viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 18 Q20 2, 44 4 Q60 6, 76 16" stroke="#4A3728" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M8 17 Q22 5, 44 6 Q58 7, 74 16" stroke="#4A3728" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.4"/>
+            </svg>
+          </div>
+          <h4>Soft Arch</h4>
+          <p>A gentle arch that lifts and opens up your eyes for an elegant, feminine look.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2226,90 +2324,201 @@ function votePoll(val) {
 /* ─── VIRTUAL TRY-ON ─── */
 let tryonRunning = false;
 let tryonStream = null;
+let tryonMode = null; // 'photo' or 'camera'
 let browStyle = 'natural';
 let browColor = '#4A3728';
 let browIntensity = 70;
 let noFaceCount = 0;
+let storedLandmarks = null; // For photo mode: stored detection result
+let storedFaceWidth = 0;
+
+// Feature detection: show camera link only on secure context
+(function() {
+  if (window.isSecureContext && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    var camLink = document.getElementById('tryonCameraLink');
+    if (camLink) camLink.style.display = '';
+  }
+})();
 
 function loadFaceApi() {
-  return new Promise((resolve, reject) => {
+  return new Promise(function(resolve, reject) {
     if (window.faceapi) return resolve();
-    const s = document.createElement('script');
+    var s = document.createElement('script');
     s.src = 'https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js';
     s.onload = resolve;
-    s.onerror = () => reject(new Error('Failed to load face detection library'));
+    s.onerror = function() { reject(new Error('Failed to load face detection. Check your internet connection.')); };
     document.head.appendChild(s);
   });
 }
 
 async function loadModels() {
-  const url = 'https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights';
+  var url = 'https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights';
   await faceapi.nets.tinyFaceDetector.loadFromUri(url);
   await faceapi.nets.faceLandmark68Net.loadFromUri(url);
 }
 
-async function startTryon() {
-  const startEl = document.getElementById('tryonStart');
-  const activeEl = document.getElementById('tryonActive');
-  const errorEl = document.getElementById('tryonError');
-  const loadingEl = document.getElementById('tryonLoading');
-  const video = document.getElementById('tryonVideo');
+function showTryonState(state) {
+  document.getElementById('tryonUploadCard').style.display = state === 'upload' ? '' : 'none';
+  document.getElementById('tryonResultView').style.display = state === 'result' ? '' : 'none';
+  document.getElementById('tryonError').style.display = state === 'error' ? '' : 'none';
+}
 
-  errorEl.style.display = 'none';
-  startEl.style.display = 'none';
-  activeEl.style.display = 'block';
-  loadingEl.style.display = 'flex';
+// ─── PHOTO UPLOAD MODE (primary) ───
+async function handlePhotoUpload(file) {
+  if (!file) return;
+  showTryonState('result');
+  var loading = document.getElementById('tryonLoading');
+  loading.style.display = 'flex';
+  document.getElementById('tryonLoadMsg').textContent = 'Loading face detection...';
+
+  // Hide camera elements, show photo canvases
+  document.getElementById('tryonVideo').style.display = 'none';
+  document.getElementById('tryonPhotoCanvas').style.display = 'block';
+  document.getElementById('tryonOverlayCanvas').style.display = 'block';
+  tryonMode = 'photo';
 
   try {
     await loadFaceApi();
+    document.getElementById('tryonLoadMsg').textContent = 'Downloading face models...';
     await loadModels();
+    document.getElementById('tryonLoadMsg').textContent = 'Analyzing your photo...';
+
+    // Load the image
+    var img = await faceapi.bufferToImage(file);
+
+    // Set up canvases
+    var photoCanvas = document.getElementById('tryonPhotoCanvas');
+    var overlayCanvas = document.getElementById('tryonOverlayCanvas');
+    photoCanvas.width = img.width;
+    photoCanvas.height = img.height;
+    overlayCanvas.width = img.width;
+    overlayCanvas.height = img.height;
+
+    // Draw photo on base canvas
+    var pCtx = photoCanvas.getContext('2d');
+    pCtx.drawImage(img, 0, 0);
+
+    // Detect face in the image
+    var detection = await faceapi
+      .detectSingleFace(img, new faceapi.TinyFaceDetectorOptions({ inputSize: 416, scoreThreshold: 0.4 }))
+      .withFaceLandmarks();
+
+    loading.style.display = 'none';
+
+    if (!detection) {
+      showTryonState('error');
+      document.getElementById('tryonErrorMsg').textContent =
+        "We couldn\u2019t detect a face in your photo. Try a well-lit, front-facing selfie.";
+      return;
+    }
+
+    // Store landmarks for redrawing when controls change
+    storedLandmarks = detection.landmarks;
+    storedFaceWidth = detection.landmarks.getJawOutline()[16].x - detection.landmarks.getJawOutline()[0].x;
+
+    // Draw initial brows
+    redrawPhotoBrows();
+
+  } catch (err) {
+    console.error('Try-on error:', err);
+    loading.style.display = 'none';
+    showTryonState('error');
+    document.getElementById('tryonErrorMsg').textContent = err.message || 'Something went wrong. Please try again.';
+  }
+}
+
+function redrawPhotoBrows() {
+  if (!storedLandmarks) return;
+  var overlayCanvas = document.getElementById('tryonOverlayCanvas');
+  var ctx = overlayCanvas.getContext('2d');
+  ctx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+
+  var leftBrow = storedLandmarks.getLeftEyeBrow();
+  var rightBrow = storedLandmarks.getRightEyeBrow();
+  var leftEye = storedLandmarks.getLeftEye();
+  var rightEye = storedLandmarks.getRightEye();
+
+  drawMicrobladedBrow(ctx, leftBrow, leftEye, storedFaceWidth, false);
+  drawMicrobladedBrow(ctx, rightBrow, rightEye, storedFaceWidth, true);
+}
+
+// ─── CAMERA MODE (secondary) ───
+async function startCamera() {
+  showTryonState('result');
+  var loading = document.getElementById('tryonLoading');
+  loading.style.display = 'flex';
+  document.getElementById('tryonLoadMsg').textContent = 'Loading face detection...';
+
+  // Show video, hide photo canvases
+  document.getElementById('tryonPhotoCanvas').style.display = 'none';
+  document.getElementById('tryonOverlayCanvas').style.display = 'block';
+  document.getElementById('tryonVideo').style.display = 'block';
+  tryonMode = 'camera';
+
+  try {
+    await loadFaceApi();
+    document.getElementById('tryonLoadMsg').textContent = 'Downloading face models...';
+    await loadModels();
+    document.getElementById('tryonLoadMsg').textContent = 'Starting camera...';
 
     tryonStream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } }
     });
+
+    var video = document.getElementById('tryonVideo');
     video.srcObject = tryonStream;
     await video.play();
 
-    const canvas = document.getElementById('tryonCanvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+    var overlayCanvas = document.getElementById('tryonOverlayCanvas');
+    overlayCanvas.width = video.videoWidth;
+    overlayCanvas.height = video.videoHeight;
 
-    loadingEl.style.display = 'none';
+    loading.style.display = 'none';
     tryonRunning = true;
     noFaceCount = 0;
     detectAndDraw();
+
   } catch (err) {
-    console.error('Try-on error:', err);
-    activeEl.style.display = 'none';
-    errorEl.style.display = 'block';
+    console.error('Camera error:', err);
+    loading.style.display = 'none';
     if (tryonStream) {
-      tryonStream.getTracks().forEach(t => t.stop());
+      tryonStream.getTracks().forEach(function(t) { t.stop(); });
       tryonStream = null;
     }
+    // Fall back to upload mode with specific error message
+    showTryonState('error');
+    var msg = 'Camera access failed. ';
+    if (err.name === 'NotAllowedError') {
+      msg += 'Camera permission was denied. You can still upload a selfie instead.';
+    } else if (err.name === 'NotFoundError') {
+      msg += 'No camera detected. You can still upload a selfie instead.';
+    } else if (err.name === 'NotReadableError') {
+      msg += 'Camera may be in use by another app. You can still upload a selfie instead.';
+    } else {
+      msg += 'You can still upload a selfie instead.';
+    }
+    document.getElementById('tryonErrorMsg').textContent = msg;
   }
 }
 
-function stopTryon() {
+function stopCamera() {
   tryonRunning = false;
   if (tryonStream) {
-    tryonStream.getTracks().forEach(t => t.stop());
+    tryonStream.getTracks().forEach(function(t) { t.stop(); });
     tryonStream = null;
   }
-  const video = document.getElementById('tryonVideo');
+  var video = document.getElementById('tryonVideo');
   video.srcObject = null;
-  document.getElementById('tryonActive').style.display = 'none';
-  document.getElementById('tryonStart').style.display = 'block';
-  document.getElementById('tryonHint').style.display = 'none';
 }
 
 async function detectAndDraw() {
   if (!tryonRunning) return;
-  const video = document.getElementById('tryonVideo');
-  const canvas = document.getElementById('tryonCanvas');
-  const ctx = canvas.getContext('2d');
+  var video = document.getElementById('tryonVideo');
+  var canvas = document.getElementById('tryonOverlayCanvas');
+  var ctx = canvas.getContext('2d');
 
   try {
-    const detection = await faceapi
+    var detection = await faceapi
       .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions({ inputSize: 320, scoreThreshold: 0.5 }))
       .withFaceLandmarks();
 
@@ -2318,22 +2527,19 @@ async function detectAndDraw() {
     if (detection) {
       noFaceCount = 0;
       document.getElementById('tryonHint').style.display = 'none';
-      const landmarks = detection.landmarks;
-      const leftBrow = landmarks.getLeftEyeBrow();
-      const rightBrow = landmarks.getRightEyeBrow();
-      const leftEye = landmarks.getLeftEye();
-      const rightEye = landmarks.getRightEye();
-      const jaw = landmarks.getJawOutline();
-      const faceWidth = jaw[16].x - jaw[0].x;
+      var landmarks = detection.landmarks;
+      var leftBrow = landmarks.getLeftEyeBrow();
+      var rightBrow = landmarks.getRightEyeBrow();
+      var leftEye = landmarks.getLeftEye();
+      var rightEye = landmarks.getRightEye();
+      var jaw = landmarks.getJawOutline();
+      var faceWidth = jaw[16].x - jaw[0].x;
 
-      // Mirror the canvas to match mirrored video
       ctx.save();
       ctx.translate(canvas.width, 0);
       ctx.scale(-1, 1);
-
       drawMicrobladedBrow(ctx, leftBrow, leftEye, faceWidth, false);
       drawMicrobladedBrow(ctx, rightBrow, rightEye, faceWidth, true);
-
       ctx.restore();
     } else {
       noFaceCount++;
@@ -2341,195 +2547,189 @@ async function detectAndDraw() {
         document.getElementById('tryonHint').style.display = 'block';
       }
     }
-  } catch (e) {
-    // Detection can fail on some frames, just skip
-  }
+  } catch (e) { /* skip frame */ }
 
   if (tryonRunning) requestAnimationFrame(detectAndDraw);
 }
 
+// ─── SHARED: Eyebrow rendering ───
 function drawMicrobladedBrow(ctx, browPoints, eyePoints, faceWidth, isRight) {
-  const intensity = browIntensity / 100;
-  const pts = browPoints.map(p => ({ x: p.x, y: p.y }));
+  var intensity = browIntensity / 100;
+  var pts = browPoints.map(function(p) { return { x: p.x, y: p.y }; });
 
-  // Calculate eye center for reference
-  const eyeCenterY = eyePoints.reduce((s, p) => s + p.y, 0) / eyePoints.length;
+  var baseThickness = faceWidth * 0.028;
+  var thickness = browStyle === 'bold' ? baseThickness * 1.5 :
+                  browStyle === 'soft' ? baseThickness * 1.1 : baseThickness;
 
-  // Brow thickness proportional to face size
-  const baseThickness = faceWidth * 0.028;
-  const thickness = browStyle === 'bold' ? baseThickness * 1.5 :
-                    browStyle === 'soft' ? baseThickness * 1.1 : baseThickness;
-
-  // Arch modification based on style
-  const archPts = pts.map((p, i) => {
-    let yOffset = 0;
-    const t = i / (pts.length - 1); // 0 to 1 along brow
-
+  var archPts = pts.map(function(p, i) {
+    var t = i / (pts.length - 1);
+    var yOffset = 0;
     if (browStyle === 'soft') {
-      // Softer arch - raise the middle more
       yOffset = -Math.sin(t * Math.PI) * thickness * 0.6;
     } else if (browStyle === 'bold') {
-      // Bolder - raise peak at ~60%
       yOffset = -Math.sin(t * Math.PI * 0.8 + 0.3) * thickness * 0.4;
     } else {
-      // Natural - subtle lift at arch
       yOffset = -Math.sin(t * Math.PI) * thickness * 0.3;
     }
-
     return { x: p.x, y: p.y + yOffset };
   });
 
-  // Create upper and lower contours
-  const upper = [];
-  const lower = [];
-
-  for (let i = 0; i < archPts.length; i++) {
-    const t = i / (archPts.length - 1);
-    // Brow is thickest in the middle, tapers at ends
-    const thicknessMult = 0.3 + 0.7 * Math.sin(t * Math.PI);
-    const h = thickness * thicknessMult;
-
-    // Calculate perpendicular direction
-    let dx, dy;
-    if (i === 0) {
-      dx = archPts[1].x - archPts[0].x;
-      dy = archPts[1].y - archPts[0].y;
-    } else if (i === archPts.length - 1) {
-      dx = archPts[i].x - archPts[i - 1].x;
-      dy = archPts[i].y - archPts[i - 1].y;
-    } else {
-      dx = archPts[i + 1].x - archPts[i - 1].x;
-      dy = archPts[i + 1].y - archPts[i - 1].y;
-    }
-    const len = Math.sqrt(dx * dx + dy * dy) || 1;
-    const nx = -dy / len;
-    const ny = dx / len;
-
+  var upper = [];
+  var lower = [];
+  for (var i = 0; i < archPts.length; i++) {
+    var t = i / (archPts.length - 1);
+    var thicknessMult = 0.3 + 0.7 * Math.sin(t * Math.PI);
+    var h = thickness * thicknessMult;
+    var dx, dy;
+    if (i === 0) { dx = archPts[1].x - archPts[0].x; dy = archPts[1].y - archPts[0].y; }
+    else if (i === archPts.length - 1) { dx = archPts[i].x - archPts[i-1].x; dy = archPts[i].y - archPts[i-1].y; }
+    else { dx = archPts[i+1].x - archPts[i-1].x; dy = archPts[i+1].y - archPts[i-1].y; }
+    var len = Math.sqrt(dx*dx + dy*dy) || 1;
+    var nx = -dy / len, ny = dx / len;
     upper.push({ x: archPts[i].x + nx * h * 0.6, y: archPts[i].y + ny * h * 0.6 });
     lower.push({ x: archPts[i].x - nx * h * 0.4, y: archPts[i].y - ny * h * 0.4 });
   }
 
-  // Parse color
-  const col = browColor;
-  const r = parseInt(col.slice(1, 3), 16);
-  const g = parseInt(col.slice(3, 5), 16);
-  const b = parseInt(col.slice(5, 7), 16);
+  var col = browColor;
+  var r = parseInt(col.slice(1,3),16), g = parseInt(col.slice(3,5),16), b = parseInt(col.slice(5,7),16);
 
-  // Draw filled brow shape with gradient
+  // Filled base shape
   ctx.save();
   ctx.globalAlpha = intensity * 0.35;
   ctx.beginPath();
   ctx.moveTo(upper[0].x, upper[0].y);
-  for (let i = 1; i < upper.length; i++) {
-    const xc = (upper[i].x + upper[Math.min(i + 1, upper.length - 1)].x) / 2;
-    const yc = (upper[i].y + upper[Math.min(i + 1, upper.length - 1)].y) / 2;
+  for (var i = 1; i < upper.length; i++) {
+    var xc = (upper[i].x + upper[Math.min(i+1, upper.length-1)].x) / 2;
+    var yc = (upper[i].y + upper[Math.min(i+1, upper.length-1)].y) / 2;
     ctx.quadraticCurveTo(upper[i].x, upper[i].y, xc, yc);
   }
-  for (let i = lower.length - 1; i >= 0; i--) {
-    const prev = i > 0 ? i - 1 : 0;
-    const xc = (lower[i].x + lower[prev].x) / 2;
-    const yc = (lower[i].y + lower[prev].y) / 2;
+  for (var i = lower.length - 1; i >= 0; i--) {
+    var prev = i > 0 ? i - 1 : 0;
+    var xc = (lower[i].x + lower[prev].x) / 2;
+    var yc = (lower[i].y + lower[prev].y) / 2;
     ctx.quadraticCurveTo(lower[i].x, lower[i].y, xc, yc);
   }
   ctx.closePath();
-  ctx.fillStyle = `rgba(${r},${g},${b},1)`;
+  ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',1)';
   ctx.fill();
   ctx.restore();
 
-  // Draw hair strokes for microblading effect
-  const numStrokes = browStyle === 'bold' ? 45 : browStyle === 'soft' ? 30 : 35;
-
+  // Hair strokes
+  var numStrokes = browStyle === 'bold' ? 45 : browStyle === 'soft' ? 30 : 35;
   ctx.save();
-  ctx.globalAlpha = intensity * 0.65;
-  ctx.strokeStyle = `rgba(${r},${g},${b},1)`;
+  ctx.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',1)';
   ctx.lineCap = 'round';
 
-  for (let s = 0; s < numStrokes; s++) {
-    const t = (s + 0.5) / numStrokes;
-    // Position along brow
-    const idx = t * (archPts.length - 1);
-    const i0 = Math.floor(idx);
-    const i1 = Math.min(i0 + 1, archPts.length - 1);
-    const frac = idx - i0;
+  for (var s = 0; s < numStrokes; s++) {
+    var t = (s + 0.5) / numStrokes;
+    var idx = t * (archPts.length - 1);
+    var i0 = Math.floor(idx);
+    var i1 = Math.min(i0 + 1, archPts.length - 1);
+    var frac = idx - i0;
+    var cx = archPts[i0].x + (archPts[i1].x - archPts[i0].x) * frac;
+    var cy = archPts[i0].y + (archPts[i1].y - archPts[i0].y) * frac;
 
-    const cx = archPts[i0].x + (archPts[i1].x - archPts[i0].x) * frac;
-    const cy = archPts[i0].y + (archPts[i1].y - archPts[i0].y) * frac;
+    // Deterministic pseudo-random per stroke
+    var seed = Math.sin(s * 12.9898 + 78.233) * 43758.5453;
+    var rand1 = seed - Math.floor(seed);
+    seed = Math.sin(s * 78.233 + 12.9898) * 23421.631;
+    var rand2 = seed - Math.floor(seed);
 
-    // Stroke direction - inner brow goes up, outer goes more angled
-    const baseAngle = isRight ?
-      (-Math.PI / 2 + t * 0.8 - 0.3) :
-      (-Math.PI / 2 - t * 0.8 + 0.3);
-    const angle = baseAngle + (Math.random() - 0.5) * 0.3;
+    var baseAngle = isRight ?
+      (-Math.PI/2 + t * 0.8 - 0.3) :
+      (-Math.PI/2 - t * 0.8 + 0.3);
+    var angle = baseAngle + (rand1 - 0.5) * 0.3;
 
-    // Stroke length proportional to thickness at this point
-    const thickHere = thickness * (0.3 + 0.7 * Math.sin(t * Math.PI));
-    const strokeLen = thickHere * (0.7 + Math.random() * 0.6);
+    var thickHere = thickness * (0.3 + 0.7 * Math.sin(t * Math.PI));
+    var strokeLen = thickHere * (0.7 + rand2 * 0.6);
 
-    ctx.lineWidth = 0.5 + Math.random() * 1.0;
-    ctx.globalAlpha = intensity * (0.35 + Math.random() * 0.35);
+    ctx.lineWidth = 0.5 + rand1 * 1.0;
+    ctx.globalAlpha = intensity * (0.35 + rand2 * 0.35);
 
     ctx.beginPath();
-    ctx.moveTo(
-      cx - Math.cos(angle) * strokeLen * 0.5,
-      cy - Math.sin(angle) * strokeLen * 0.5
-    );
-    ctx.lineTo(
-      cx + Math.cos(angle) * strokeLen * 0.5,
-      cy + Math.sin(angle) * strokeLen * 0.5
-    );
+    ctx.moveTo(cx - Math.cos(angle)*strokeLen*0.5, cy - Math.sin(angle)*strokeLen*0.5);
+    ctx.lineTo(cx + Math.cos(angle)*strokeLen*0.5, cy + Math.sin(angle)*strokeLen*0.5);
     ctx.stroke();
   }
   ctx.restore();
 }
 
+// ─── CONTROLS ───
 function setBrowStyle(style) {
   browStyle = style;
-  document.querySelectorAll('.tryon-style-btn').forEach(b => {
+  document.querySelectorAll('.tryon-style-btn').forEach(function(b) {
     b.classList.toggle('active', b.dataset.style === style);
   });
+  if (tryonMode === 'photo') redrawPhotoBrows();
 }
 
 function setBrowColor(color) {
   browColor = color;
-  document.querySelectorAll('.tryon-color-btn').forEach(b => {
+  document.querySelectorAll('.tryon-color-btn').forEach(function(b) {
     b.classList.toggle('active', b.dataset.color === color);
   });
+  if (tryonMode === 'photo') redrawPhotoBrows();
 }
 
 function setBrowIntensity(val) {
   browIntensity = parseInt(val);
+  if (tryonMode === 'photo') redrawPhotoBrows();
+}
+
+function tryAnother() {
+  stopCamera();
+  tryonMode = null;
+  storedLandmarks = null;
+  storedFaceWidth = 0;
+  // Clear canvases
+  var pc = document.getElementById('tryonPhotoCanvas');
+  var oc = document.getElementById('tryonOverlayCanvas');
+  pc.getContext('2d').clearRect(0, 0, pc.width, pc.height);
+  oc.getContext('2d').clearRect(0, 0, oc.width, oc.height);
+  // Reset file input
+  document.getElementById('tryonFileInput').value = '';
+  showTryonState('upload');
 }
 
 function captureSnapshot() {
-  const video = document.getElementById('tryonVideo');
-  const browCanvas = document.getElementById('tryonCanvas');
-  const offscreen = document.createElement('canvas');
-  offscreen.width = video.videoWidth;
-  offscreen.height = video.videoHeight;
-  const ctx = offscreen.getContext('2d');
+  var offscreen = document.createElement('canvas');
+  var ctx;
 
-  // Draw mirrored video
-  ctx.save();
-  ctx.translate(offscreen.width, 0);
-  ctx.scale(-1, 1);
-  ctx.drawImage(video, 0, 0);
-  ctx.restore();
+  if (tryonMode === 'photo') {
+    var pc = document.getElementById('tryonPhotoCanvas');
+    var oc = document.getElementById('tryonOverlayCanvas');
+    offscreen.width = pc.width;
+    offscreen.height = pc.height;
+    ctx = offscreen.getContext('2d');
+    ctx.drawImage(pc, 0, 0);
+    ctx.drawImage(oc, 0, 0);
+  } else {
+    var video = document.getElementById('tryonVideo');
+    var oc = document.getElementById('tryonOverlayCanvas');
+    offscreen.width = video.videoWidth;
+    offscreen.height = video.videoHeight;
+    ctx = offscreen.getContext('2d');
+    ctx.save();
+    ctx.translate(offscreen.width, 0);
+    ctx.scale(-1, 1);
+    ctx.drawImage(video, 0, 0);
+    ctx.restore();
+    ctx.drawImage(oc, 0, 0);
+  }
 
-  // Draw brow overlay
-  ctx.drawImage(browCanvas, 0, 0);
-
-  // Add watermark
+  // Watermark
   ctx.fillStyle = 'rgba(255,255,255,0.6)';
   ctx.font = '14px "DM Sans", sans-serif';
   ctx.textAlign = 'right';
   ctx.fillText('Happily Ever Inked & Beauty Co', offscreen.width - 12, offscreen.height - 12);
 
-  // Trigger download
-  const link = document.createElement('a');
+  // Download
+  var link = document.createElement('a');
   link.download = 'my-microblading-preview.png';
   link.href = offscreen.toDataURL('image/png');
   link.click();
 }
+
 </script>
 
 </body>
